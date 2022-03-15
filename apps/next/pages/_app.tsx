@@ -3,8 +3,9 @@ import Head from 'next/head'
 import React from 'react'
 import type { SolitoAppProps } from 'solito'
 import 'raf/polyfill'
+import { withPasswordProtect } from '@storyofams/next-password-protect'
 
-function MyApp({ Component, pageProps }: SolitoAppProps) {
+function App({ Component, pageProps }: SolitoAppProps) {
   return (
     <>
       <Head>
@@ -22,4 +23,10 @@ function MyApp({ Component, pageProps }: SolitoAppProps) {
   )
 }
 
-export default MyApp
+// Before: export default App;
+export default process.env.PASSWORD_PROTECT
+  ? withPasswordProtect(App, {
+    // Options go here (optional)
+    loginApiUrl: '/api/login',
+  })
+  : App;

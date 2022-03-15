@@ -12,7 +12,8 @@
     "@expo/next-adapter": "^3.1.20",
     "app": "*",
     "next": "12.1.0",
-    "raf": "^3.4.1"
+    "raf": "^3.4.1",
+		"@storyofams/next-password-protect": "^1.6.0"
   },
   "devDependencies": {
     "@types/node": "17.0.21",

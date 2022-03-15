@@ -1,9 +1,14 @@
 import { Text, useSx, View, H1, P, Row, A } from 'dripsy'
+import { useEffect, useState } from 'react'
 import { TextLink } from 'solito/link'
 import { MotiLink } from 'solito/moti'
 
+import useFetch from '../../hooks/useFetch'
+
 export function HomeScreen() {
   const sx = useSx()
+
+	const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/todos')
 
   return (
     <View
@@ -66,6 +71,7 @@ export function HomeScreen() {
           </Text>
         </MotiLink>
       </Row>
+			<Row>{data && data.map(item => <Text key={item.id}>{item.title}</Text>)}</Row>
     </View>
   )
 }
