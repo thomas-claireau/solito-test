@@ -1,5 +1,4 @@
 import { Text, useSx, View, H1, P, Row, A } from 'dripsy'
-import { useEffect, useState } from 'react'
 import { TextLink } from 'solito/link'
 import { MotiLink } from 'solito/moti'
 
@@ -9,8 +8,6 @@ export function HomeScreen() {
   const sx = useSx()
 
 	const { data, loading, error } = useFetch('/api/test')
-
-	console.log(data);
 
   return (
     <View
@@ -72,8 +69,8 @@ export function HomeScreen() {
             Moti Link
           </Text>
         </MotiLink>
+				<Text>{JSON.stringify(data)}</Text>
       </Row>
-			<Row>{data && data.map(item => <Text key={item.id}>{item.title}</Text>)}</Row>
     </View>
   )
 }
