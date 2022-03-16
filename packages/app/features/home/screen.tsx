@@ -8,7 +8,9 @@ import useFetch from '../../hooks/useFetch'
 export function HomeScreen() {
   const sx = useSx()
 
-	const { data, loading, error } = useFetch('https://jsonplaceholder.typicode.com/todos')
+	const { data, loading, error } = useFetch('/api/test')
+
+	console.log(data);
 
   return (
     <View
